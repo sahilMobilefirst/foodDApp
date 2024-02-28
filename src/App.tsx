@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react';
-import IntroScreen from './screens/IntroScreen';
+import IntroScreen from './screens/introScreen/IntroScreen';
 
 
 
