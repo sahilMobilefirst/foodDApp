@@ -3,8 +3,8 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import Searchbar from '../../components/Searchbar';
 import { categories, openRestaurants } from '../../utils/data';
-import { Item } from './CategoryItem';
-import { ResItem } from './ResItem';
+import { Item } from '../../components/CategoryItem';
+import { ResItem } from '../../components/ResItem';
 
 export interface ListItem {
   key: string;

@@ -1,5 +1,5 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native"
-import { ListItem } from "."
+import { ListItem } from "../screens/Home"
 import { useState } from "react"
 
 export const Item =(item:ListItem)=>{
