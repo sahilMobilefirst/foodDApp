@@ -1,11 +1,6 @@
 import { SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react';
-import IntroScreen from './screens/introScreen/IntroScreen';
-
-
-
-
-
+import Home from './screens/Home';
 
 
 
@@ -14,7 +9,7 @@ import IntroScreen from './screens/introScreen/IntroScreen';
 const App = () => {
   return (
    <SafeAreaView style={sytles.safviewCon}>
-    <IntroScreen/>
+    <Home/>
    </SafeAreaView>
   
   )

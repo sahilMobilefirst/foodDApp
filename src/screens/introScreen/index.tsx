@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { Image1,Image2,Image3 } from "../../../assets/images";
 import { introLines } from '../../utils/data';
@@ -18,20 +18,20 @@ const IntroScreen = () => {
   return (
     <View style={{ paddingHorizontal: 20,paddingTop:50 }}>
      <View style={styles.imgView}>
-      <Image style={styles.img} source={ImgList[index]}/>
-      <Text style={styles.introText}>{introLines[index]}</Text>
-      <Text style={styles.imgText2} >Get all your loved foods in one once place, you just place the orer we do the rest</Text>
-      <View style={{flexDirection:"row",alignSelf:"center"}}>
-           <View style={styles.dotView}>
-            {ImgList.map((_, i) => (
-              <TouchableOpacity
-                onPress={()=>setIndex(i)}
-                key={i}
-                style={[styles.dot, { backgroundColor: index === i ? '#F44336' : '#FFCDD2' }]}
-              />
-            ))}
-          </View>
-      </View>
+        <Image style={styles.img} source={ImgList[index]}/>
+        <Text style={styles.introText}>{introLines[index]}</Text>
+        <Text style={styles.imgText2} >Get all your loved foods in one once place, you just place the orer we do the rest</Text>
+        <View style={{flexDirection:"row",alignSelf:"center"}}>
+            <View style={styles.dotView}>
+              {ImgList.map((_, i) => (
+                <TouchableOpacity
+                  onPress={()=>setIndex(i)}
+                  key={i}
+                  style={[styles.dot, { backgroundColor: index === i ? '#F44336' : '#FFCDD2' }]}
+                />
+              ))}
+            </View>
+        </View>
      </View>
 
       <View style={{ paddingHorizontal: 15 }}>
