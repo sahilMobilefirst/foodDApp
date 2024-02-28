@@ -12,18 +12,18 @@ export const ResItem = (item: ResItemType) => {
           <Image style={styles.img} source={item.img} />
         </View>
 
-        <View style={{ paddingHorizontal: 15,flexDirection:"column",alignContent:"space-between" }}>
-        <View>
+        <View style={styles.container2}>
+          <View>
             <Text style={styles.text}>{item.title}</Text>
             <View style={{ flexDirection: "row", justifyContent: "space-between", paddingVertical: 5, width: 166 }}>
-                <Text style={styles.text}>{item.price}</Text>
-                <Text style={{ color: "#B0A9A2", fontSize: 16 }}>
+              <Text style={styles.text}>{item.price}</Text>
+              <Text style={{ color: "#B0A9A2", fontSize: 16 }}>
                 ⭐{item.rating}
-                </Text>
+              </Text>
             </View>
-        </View>
+          </View>
 
-          <View style={{ flexDirection: "row", justifyContent:"flex-end",gap:10}}>
+          <View style={styles.container3}>
             <Icon1
               style={styles.icon1}
               name="heart-alt"
@@ -34,7 +34,7 @@ export const ResItem = (item: ResItemType) => {
               style={styles.icon2}
               name="bag-shopping"
               color={"white"}
-              size={20}
+              size={15}
             />
           </View>
         </View>
@@ -59,8 +59,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     marginLeft: 10,
-    elevation: 5,
+    elevation: 3,
   },
+  container2:{
+     flex: 1, flexDirection: 'column', justifyContent: 'space-between', paddingHorizontal: 15
+  },
+  
+  container3:{ 
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: 'flex-end',
+    gap: 10 },
+    
   icon1: {
     padding: 8,
     borderColor: "#E3DCD5",
@@ -73,6 +83,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
     paddingHorizontal: 11,
-    alignSelf: "flex-end",
+    alignSelf: "center",
   },
 });
