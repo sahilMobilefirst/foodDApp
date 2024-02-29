@@ -35,7 +35,8 @@ export const Item =(item:ListItem)=>{
             borderRadius:50,
             marginLeft:10,
             padding:10,
-            elevation:5
+            elevation:5,
+            marginVertical:10
         }
 
   })

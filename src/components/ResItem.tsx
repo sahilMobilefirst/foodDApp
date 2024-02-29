@@ -1,12 +1,11 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { useState } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
+;
 import { ResItemType } from "../screens/Home";
 import Icon1 from "react-native-vector-icons/Fontisto";
 import Icon2 from "react-native-vector-icons/FontAwesome6";
 
 export const ResItem = (item: ResItemType) => {
   return (
-    <Pressable>
       <View style={styles.container}>
         <View style={{ paddingVertical: 25, backgroundColor: "#F0ECE9" }}>
           <Image style={styles.img} source={item.img} />
@@ -39,7 +38,6 @@ export const ResItem = (item: ResItemType) => {
           </View>
         </View>
       </View>
-    </Pressable>
   );
 };
 
@@ -59,7 +57,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
     marginLeft: 10,
-    elevation: 3,
+    elevation: 5,
+   marginVertical:10
   },
   container2:{
      flex: 1, flexDirection: 'column', justifyContent: 'space-between', paddingHorizontal: 15
@@ -69,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: 'flex-end',
+    marginBottom:5,
     gap: 10 },
     
   icon1: {
