@@ -1,6 +1,6 @@
 import { Dimensions, FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import SearchNav from '../../components/SearchNav'
+import SearchNav from '../../components/Navbars/SearchNav'
 import Searchbar from '../../components/Searchbar'
 import { RecentKeywords, SuggestedRes, popularFood } from '../../utils/data';
 import Icon from 'react-native-vector-icons/Octicons';

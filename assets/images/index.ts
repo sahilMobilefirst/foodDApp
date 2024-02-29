@@ -8,6 +8,8 @@ import cat3 from './cat3.png';
 import suggest1 from './Suggest1.png';
 import suggest2 from './Suggest2.png';
 import suggest3 from './Suggest3.png';
-import popularFood1 from "./2-2-burger-free-download-png 25.png"
+import popularFood1 from "./2-2-burger-free-download-png 25.png";
+import detailcon from "./detaiIcon.png"
+import detailsImg from "./detailsImage.png"
 
-export { Image1, Image2, Image3,cat1,cat2,cat3,popularFood1,suggest1,suggest2,suggest3};
+export { Image1, Image2, Image3,cat1,cat2,cat3,popularFood1,suggest1,suggest2,suggest3,detailcon,detailsImg};

@@ -16,7 +16,7 @@ const IntroScreen = () => {
     }
     }
   return (
-    <View style={{ paddingHorizontal: 20,paddingTop:50 }}>
+    <View style={{paddingHorizontal:15}}>
      <View style={styles.imgView}>
         <Image style={styles.img} source={ImgList[index]}/>
         <Text style={styles.introText}>{introLines[index]}</Text>

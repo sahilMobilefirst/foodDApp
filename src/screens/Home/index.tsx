@@ -1,6 +1,6 @@
 import { FlatList, Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbars/Navbar';
 import Searchbar from '../../components/Searchbar';
 import { categories, openRestaurants, popularFood } from '../../utils/data';
 import { Item } from '../../components/CategoryItem';

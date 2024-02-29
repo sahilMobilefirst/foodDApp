@@ -3,6 +3,7 @@ import React from 'react';
 import Home from './screens/Home';
 
 import SearchScreen from './screens/searchScreen';
+import DetailScreen from './screens/details';
 
 
 
@@ -11,7 +12,7 @@ import SearchScreen from './screens/searchScreen';
 const App = () => {
   return (
    <SafeAreaView style={sytles.safviewCon}>
-    <SearchScreen/>
+    <DetailScreen/>
    </SafeAreaView>
   
   )
@@ -23,6 +24,6 @@ const sytles = StyleSheet.create({
   safviewCon:{
     flex:1,
     backgroundColor:"white",
-    color:"black"
+    color:"black",
   },
 })
