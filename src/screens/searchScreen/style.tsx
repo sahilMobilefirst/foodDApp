@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
 
     },
     img:{
-      height:Dimensions.get("window").height * 0.08,
-      width:Dimensions.get("window").height * 0.08,
+      height:Dimensions.get("window").height * 0.085,
+      width:Dimensions.get("window").width * 0.185,
       borderRadius:10
     },
     popularFoodItem: {

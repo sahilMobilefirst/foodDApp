@@ -35,3 +35,9 @@ export const SuggestedRes = [
   {key:"3",name:"Cafenio Coffee Club",img:suggest3,rating:4.35},
 
 ]
+
+export const dishSizes = [
+  { key: '1', name: '10"' },
+  { key: '2', name: '14"' },
+  { key: '3', name: '16"' },
+]
