@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import SearchNav from '../../components/Navbars/SearchNav'
 import Searchbar from '../../components/Searchbar'
@@ -18,10 +18,12 @@ const SearchScreen = () => {
      <View style={{paddingVertical:Dimensions.get("window").height * 0.02}}>
      <Searchbar/>
      </View>
+     <ScrollView style={{flex:1}} >
      <View style={styles.RecentContainer}>
         <Text style={styles.RecentText1}>Recent Keywords</Text>
         <FlatList
         horizontal
+        
         data={RecentKeywords}
         keyExtractor={(item)=>item.key}
         renderItem={({item})=>{
@@ -75,7 +77,7 @@ const SearchScreen = () => {
           />
           </View>
         </View>
-     
+        </ScrollView>
     </View>
   )
 }

@@ -1,4 +1,4 @@
-import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import DetailsNav from '../../components/Navbars/DetailsNav';
 import { detailcon, detailsImg } from '../../../assets/images';
@@ -8,14 +8,15 @@ import { dishSizes } from '../../utils/data';
 
 const DetailScreen = () => {
     
-
   return (
-    <View>
+    <View style={{flex:1,marginTop:-Dimensions.get("window").height * 0.06}}>
       <View style={styles.nav}>
         <DetailsNav/>
       </View>
-      <Image style={styles.img} source={detailsImg}/>
     
+      
+    <ScrollView style={{flex:1}}>
+    <Image style={styles.img} source={detailsImg}/>
     <View style={{paddingHorizontal: Dimensions.get("window").height * 0.02,}}>
       <View style={styles.detailsContainer}>
         <Text style={styles.text1}>Joller Rice & Chicken</Text>
@@ -43,6 +44,12 @@ const DetailScreen = () => {
       <View style={styles.paraCon}>
         <Text style={{color:"#A0A5BA",fontSize:16}}>Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet</Text>
       </View>
+      <View style={styles.paraCon}>
+        <Text style={{color:"#A0A5BA",fontSize:16}}>Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet</Text>
+      </View>
+      <View style={styles.paraCon}>
+        <Text style={{color:"#A0A5BA",fontSize:16}}>Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet</Text>
+      </View>
 
         <View style={styles.sizeCon}>
             <Text style={{color:"#A0A5BA",fontSize:18}}>SIZE: </Text>
@@ -51,16 +58,12 @@ const DetailScreen = () => {
                 return(
                     <View key={size.key} style={styles.sizeCirlce}>
                         <Text style={styles.sizeText}>{size.name}</Text>
-                    </View>
-                )
+                    </View>)
                 })}
             </View>
         </View>
-
-     
-
     </View>
-
+    </ScrollView>
     <View style={styles.cart}>
         <View style={styles.cartCon1}>
             <Text style={{color:"black",fontSize:25}}>$32</Text>
@@ -88,19 +91,18 @@ export default DetailScreen;
 const styles = StyleSheet.create({
   nav: {
     zIndex: 5,
-    position: "relative",
-    top: Dimensions.get("window").height * 0.05,
+    position:"relative",
+    top: Dimensions.get("window").height * 0.08,
     paddingHorizontal: Dimensions.get("window").width * 0.02,
   },
   img: {
-    width: "100%",
-    height: "51%",
-    position: "relative",
-    bottom: Dimensions.get("window").height * 0.05,
-    zIndex: 2
+    width: Dimensions.get("window").width * 1,
+    height:Dimensions.get("window").height * 0.4,
+    zIndex: 2,
+    borderRadius:15
   },
   detailsContainer: {
-    marginTop: -Dimensions.get("window").height * 0.03,
+    marginTop:5
   },
   iconContainer: {
     flexDirection: "row",
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     paddingTop:5
   },
   text1: {
-    color: "#181C2E",
+    color: "black",
     fontSize: 20,
     textAlignVertical: "center",
   },
@@ -152,10 +154,6 @@ const styles = StyleSheet.create({
     color:"black"
   },
   cart: {
-    position: 'absolute',
-    bottom:"-17%",
-    left: 0,
-    right: 0,
     height: Dimensions.get("window").height * 0.2,
     backgroundColor: "#F0F5FA",
     paddingVertical: 20,
