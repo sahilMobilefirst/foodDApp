@@ -123,14 +123,14 @@ const styles = StyleSheet.create({
   },
   foodDetailsContainer: {
     backgroundColor: "white",
-    height:100,  // Set the height to 60
+    height:100,
     elevation: 10,
     padding: 10,
     paddingHorizontal:25,
     borderRadius: 10,
     justifyContent: 'flex-end',
     position: "relative",
-    bottom:40,  // Move the content to the bottom
+    bottom:40, 
     zIndex:1
   },
   foodTitle: {
