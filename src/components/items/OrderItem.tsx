@@ -17,11 +17,12 @@ const OrderItem = (item: OrderItemType) => {
   return (
     <View style={styles.con1}>
       <Text style={styles.text1}>{item.category}</Text>
+
       <View style={styles.con3}>
         <View style={styles.con2}>
           <Image style={styles.img} source={item.img} />
           <View style={{marginLeft:17,justifyContent:"space-between"}}>
-            <Text style={{ color: "black" }}>{item.name}</Text>
+            <Text style={{ color: "black",fontWeight:"bold" }}>{item.name}</Text>
             <View style={styles.con4}>
               <Text style={{ color: "black" }}>{item.price}</Text>
               <View style={styles.verticalLine}></View>
@@ -31,6 +32,7 @@ const OrderItem = (item: OrderItemType) => {
         </View>
         <Text style={{ color: "gray",textDecorationLine:"underline" }}>#{item.orderId}</Text>
       </View>
+
       <View style={styles.btnCon}>
         <Pressable style={[styles.btn,{backgroundColor:"#FF7622"}]}><Text style={{color:"#FFFF"}}>Track Order</Text></Pressable>
         <Pressable  style={styles.btn}><Text style={{color:"#FF7622"}}>Cancel</Text></Pressable>
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
   },
   text1: {
     color: "black",
+    fontWeight:"bold",
     paddingVertical: Dimensions.get("window").height * 0.03,
   },
   con2: {
@@ -79,7 +82,8 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:"orange",
     borderRadius:8
-  },verticalLine: {
+  },
+  verticalLine: {
     height: "100%",
     width: 1,
     backgroundColor: "#CED7DF",

@@ -7,10 +7,6 @@ import OrderScreen from './screens/orders';
 
 
 
-
-
-
-
 const App = () => {
   return (
    <SafeAreaView style={sytles.safviewCon}>
