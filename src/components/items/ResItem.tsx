@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 ;
-import { ResItemType } from "../screens/Home";
+import { ResItemType } from "../../screens/Home";
 import Icon1 from "react-native-vector-icons/Fontisto";
 import Icon2 from "react-native-vector-icons/FontAwesome6";
 

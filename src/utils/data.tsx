@@ -41,3 +41,9 @@ export const dishSizes = [
   { key: '2', name: '14"' },
   { key: '3', name: '16"' },
 ]
+
+export const cartData =[
+  {key:"1",name:"pizza calzone european",img:suggest1,price:32,quantity:1},
+  {key:"2",name:"pizza calzone european",img:suggest2,price:46,quantity:1},
+  {key:"3",name:"pizza calzone european",img:suggest3,price:34,quantity:1},
+]

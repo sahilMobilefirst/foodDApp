@@ -3,8 +3,8 @@ import React from 'react';
 import Navbar from '../../components/Navbars/Navbar';
 import Searchbar from '../../components/Searchbar';
 import { categories, openRestaurants, popularFood } from '../../utils/data';
-import { Item } from '../../components/CategoryItem';
-import { ResItem } from '../../components/ResItem';
+import { Item } from '../../components/items/CategoryItem';
+import { ResItem } from '../../components/items/ResItem';
 import { styles } from './style';
 
 
