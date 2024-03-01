@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View, Alert } from 'react-native';
 
 export interface OrderItemType {
   key: string;
@@ -9,11 +9,21 @@ export interface OrderItemType {
   quantity: number;
   orderId: number;
   category: string;
-  status: string; 
+  status: string;
   date: string;
 }
 
 const OrderItem = (item: OrderItemType) => {
+
+  const handleTrackOrderPress = () => {
+    Alert.alert('Track Order Pressed', `Order ID: ${item.orderId}`);
+  };
+
+  const handleCancelPress = () => {
+    Alert.alert('Cancel Pressed', `Order ID: ${item.orderId}`);
+   
+  };
+
   return (
     <View style={styles.con1}>
       <Text style={styles.text1}>{item.category}</Text>
@@ -21,8 +31,8 @@ const OrderItem = (item: OrderItemType) => {
       <View style={styles.con3}>
         <View style={styles.con2}>
           <Image style={styles.img} source={item.img} />
-          <View style={{marginLeft:17,justifyContent:"space-between"}}>
-            <Text style={{ color: "black",fontWeight:"bold" }}>{item.name}</Text>
+          <View style={{ marginLeft: 17, justifyContent: "space-between" }}>
+            <Text style={{ color: "black", fontWeight: "bold" }}>{item.name}</Text>
             <View style={styles.con4}>
               <Text style={{ color: "black" }}>{item.price}</Text>
               <View style={styles.verticalLine}></View>
@@ -30,12 +40,23 @@ const OrderItem = (item: OrderItemType) => {
             </View>
           </View>
         </View>
-        <Text style={{ color: "gray",textDecorationLine:"underline" }}>#{item.orderId}</Text>
+        <Text style={{ color: "gray", textDecorationLine: "underline" }}>#{item.orderId}</Text>
       </View>
 
       <View style={styles.btnCon}>
-        <Pressable style={[styles.btn,{backgroundColor:"#FF7622"}]}><Text style={{color:"#FFFF"}}>Track Order</Text></Pressable>
-        <Pressable  style={styles.btn}><Text style={{color:"#FF7622"}}>Cancel</Text></Pressable>
+        <Pressable
+          style={[styles.btn, { backgroundColor: "#FF7622" }]}
+          onPress={handleTrackOrderPress}
+        >
+          <Text style={{ color: "#FFFF" }}>Track Order</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.btn}
+          onPress={handleCancelPress}
+        >
+          <Text style={{ color: "#FF7622" }}>Cancel</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -50,11 +71,11 @@ const styles = StyleSheet.create({
   img: {
     height: Dimensions.get("window").height * 0.08,
     width: Dimensions.get("window").width * 0.15,
-    borderRadius:10
+    borderRadius: 10
   },
   text1: {
     color: "black",
-    fontWeight:"bold",
+    fontWeight: "bold",
     paddingVertical: Dimensions.get("window").height * 0.03,
   },
   con2: {
@@ -63,30 +84,28 @@ const styles = StyleSheet.create({
   con3: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical:15,
-    borderTopColor:"#CED7DF",
-    borderTopWidth:1
+    paddingVertical: 15,
+    borderTopColor: "#CED7DF",
+    borderTopWidth: 1
   },
   con4: {
     flexDirection: "row",
-    gap:10
-
+    gap: 10
   },
-  btnCon:{
-    flexDirection:"row",
-    justifyContent:"space-between"
+  btnCon: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
-  btn:{
-    paddingHorizontal:Dimensions.get("window").width * 0.12,
-    paddingVertical:Dimensions.get("window").height * 0.01,
-    borderWidth:1,
-    borderColor:"orange",
-    borderRadius:8
+  btn: {
+    paddingHorizontal: Dimensions.get("window").width * 0.12,
+    paddingVertical: Dimensions.get("window").height * 0.01,
+    borderWidth: 1,
+    borderColor: "orange",
+    borderRadius: 8
   },
   verticalLine: {
     height: "100%",
     width: 1,
     backgroundColor: "#CED7DF",
   },
-
 });

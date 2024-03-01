@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View, Alert } from 'react-native';
 
 export interface OrderItemType {
   key: string;
@@ -14,6 +14,17 @@ export interface OrderItemType {
 }
 
 const HistoryItem = (item: OrderItemType) => {
+
+  const handleRatePress = () => {
+    Alert.alert('Rate Pressed', `Rate order with ID: ${item.orderId}`);
+    // Add your logic for rating the order here
+  };
+
+  const handleReOrderPress = () => {
+    Alert.alert('Re-Order Pressed', `Re-Order from order ID: ${item.orderId}`);
+    // Add your logic for re-ordering here
+  };
+
   return (
     <View style={styles.con1}>
       <View style={{ flexDirection: "row", gap: 40 }}>
@@ -40,10 +51,10 @@ const HistoryItem = (item: OrderItemType) => {
       </View>
 
       <View style={styles.btnCon}>
-        <Pressable style={styles.btn}>
+        <Pressable style={styles.btn} onPress={handleRatePress}>
           <Text style={{ color: "#FF7622", paddingHorizontal: 10 }}>Rate</Text>
         </Pressable>
-        <Pressable style={[styles.btn, { backgroundColor: "#FF7622" }]}>
+        <Pressable style={[styles.btn, { backgroundColor: "#FF7622" }]} onPress={handleReOrderPress}>
           <Text style={{ color: "#FFFF" }}>Re-Order</Text>
         </Pressable>
       </View>
