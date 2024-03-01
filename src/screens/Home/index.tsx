@@ -1,4 +1,4 @@
-import { FlatList, Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, ImageSourcePropType, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import Navbar from '../../components/Navbars/Navbar';
 import Searchbar from '../../components/Searchbar';
@@ -31,13 +31,14 @@ export interface ResItemType {
 
 const Home = () => {
   return (
-    <View style={{ paddingTop: 12, paddingHorizontal: 15 }}>
+    <View style={{flex:1, paddingTop: 12, paddingHorizontal: 15 }}>
       <Navbar />
       <Text style={styles.text1}>
         Hey Septa, <Text style={{ fontWeight: "bold" }}>Good Afternoon</Text>
       </Text>
+      
+      <ScrollView>
       <Searchbar />
-
       <View>
         <View style={styles.categoryView}>
           <Text style={styles.categoryText1}>All Categories</Text>
@@ -52,6 +53,25 @@ const Home = () => {
           keyExtractor={(item: ListItem) => item.key}
           
         />
+        <View>
+            <View style={styles.categoryView}>
+              <Text style={styles.categoryText1}>Open Restaurants</Text>
+              <Text style={styles.categoryText2}>
+                See All
+              </Text>
+            </View>
+            <View>
+              <FlatList
+              horizontal
+              renderItem={({item})=>
+               <ResItem {...item}/>
+              }
+              
+              data={openRestaurants}
+              keyExtractor={(item: ResItemType) => item.key}
+              />
+            </View>
+        </View>
         <View>
             <View style={styles.categoryView}>
               <Text style={styles.categoryText1}>Open Restaurants</Text>
@@ -93,6 +113,7 @@ const Home = () => {
           </View>
         </View>
       </View>
+      </ScrollView>
     </View>
   );
 };

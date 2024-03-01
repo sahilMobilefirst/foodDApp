@@ -2,7 +2,8 @@ import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import React from 'react';
 
 
-import CartScreen from './screens/cart';
+import Home from './screens/Home';
+import OrderScreen from './screens/orders';
 
 
 
@@ -13,7 +14,7 @@ import CartScreen from './screens/cart';
 const App = () => {
   return (
    <SafeAreaView style={sytles.safviewCon}>
-    <CartScreen/>
+   <OrderScreen/>
    </SafeAreaView>
   
   )

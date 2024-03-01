@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     text1: {
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     },
     foodDetailsContainer: {
       backgroundColor: "white",
-      height:100,
+      height:Dimensions.get("window").height*0.13,
       elevation: 15,
       padding: 10,
       paddingHorizontal:25,

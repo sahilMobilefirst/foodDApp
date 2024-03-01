@@ -47,3 +47,9 @@ export const cartData =[
   {key:"2",name:"pizza calzone european",img:suggest2,price:46,quantity:1},
   {key:"3",name:"pizza calzone european",img:suggest3,price:34,quantity:1},
 ]
+
+export const ordersData =[
+  {key:"1",name:"Pizza Hut",img:suggest1,price:32,quantity:1,orderId:46464,category:"Food",status:"Completed",date:"29 Jan,12:30"},
+  {key:"2",name:"McDonald's",img:suggest2,price:46,quantity:1,orderId:79844,category:"Food",status:"Completed",date:"29 Jan,12:30"},
+  {key:"3",name:"Starbucks",img:suggest3,price:34,quantity:1,orderId:13131,category:"Food",status:"cancelled",date:"29 Jan,12:30"},
+]
