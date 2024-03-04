@@ -14,11 +14,14 @@ export interface OrderItemType {
   date: string;
 }
 
-const OrderItem = (item: OrderItemType) => {
+interface OrderItemProps {
+  item: OrderItemType;
+  navigation: any; 
+}
 
-  const handleTrackOrderPress = () => {
-    Alert.alert('Track Order Pressed', `Order ID: ${item.orderId}`);
-  };
+const OrderItem = ({item,navigation}:OrderItemProps) => {
+
+  const handleTrackOrderPress = navigation;
 
   const handleCancelPress = () => {
     Alert.alert('Cancel Pressed', `Order ID: ${item.orderId}`);

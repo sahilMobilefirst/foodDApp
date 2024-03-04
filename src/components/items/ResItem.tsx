@@ -1,12 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
 ;
 import { ResItemType } from "../../screens/Home";
 import Icon1 from "react-native-vector-icons/Fontisto";
 import Icon2 from "react-native-vector-icons/FontAwesome6";
 
-export const ResItem = (item: ResItemType) => {
+type ResItemProps ={
+  item:ResItemType,
+  navigation:any
+}
+
+export const ResItem = ({item,navigation}:ResItemProps) => {
   return (
-      <View style={styles.container}>
+      <Pressable
+      onPress={()=>{navigation.navigate("Details")}}
+      style={styles.container}>
         <View style={{ paddingVertical: 25, backgroundColor: "#F0ECE9" }}>
           <Image style={styles.img} source={item.img} />
         </View>
@@ -15,7 +22,7 @@ export const ResItem = (item: ResItemType) => {
           <View>
             <Text style={styles.text}>{item.title}</Text>
             <View style={{ flexDirection: "row", justifyContent: "space-between", paddingVertical: 5, width: 166 }}>
-              <Text style={styles.text}>{item.price}</Text>
+              <Text style={styles.text}>$ {item.price}</Text>
               <Text style={{ color: "#B0A9A2", fontSize: 16 }}>
                 ⭐{item.rating}
               </Text>
@@ -24,12 +31,14 @@ export const ResItem = (item: ResItemType) => {
 
           <View style={styles.container3}>
             <Icon1
+              
               style={styles.icon1}
               name="heart-alt"
               color={"black"}
               size={15}
             />
             <Icon2
+              onPress={()=>Alert.alert(("Added to Cart"))}
               style={styles.icon2}
               name="bag-shopping"
               color={"white"}
@@ -37,7 +46,7 @@ export const ResItem = (item: ResItemType) => {
             />
           </View>
         </View>
-      </View>
+      </Pressable>
   );
 };
 

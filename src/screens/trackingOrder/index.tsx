@@ -3,14 +3,17 @@ import React from 'react'
 import { BottomDrawer } from '../../components/BottomDrawer'
 import { mapImg } from '../../../assets/images'
 import CartNav from '../../components/Navbars/cartNav'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../../App'
 
+type TrackingProps = NativeStackScreenProps<RootStackParamList,"Tracking">
 
-const OrderTracking = () => {
+const OrderTracking = ({navigation}:TrackingProps) => {
   return (
     <View style={styles.mainCon}>
         
       <View style={styles.NavCon}>
-            <CartNav name='Track Order' iconBgColor='black' iconColor='white'/>
+            <CartNav navigation={navigation} name='Track Order' iconBgColor='black' iconColor='white'/>
       </View>
       <Image source={mapImg} style={styles.img}/>
       <BottomDrawer/>

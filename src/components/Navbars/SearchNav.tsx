@@ -5,12 +5,14 @@ import Icon2 from 'react-native-vector-icons/Feather';
 
 
 
-const SearchNav = () => {
+const SearchNav = ({navigation}:any) => {
     
   return (
     <View style={styles.con1}>
         <View style={styles.con2}>
-          <Icon name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
+          <Icon
+          onPress={()=>navigation.goBack()}
+          name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
           <View style={{ paddingLeft: 15 }}>
             <Text style={styles.navText1}>Search</Text>
           </View>

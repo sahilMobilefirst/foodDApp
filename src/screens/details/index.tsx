@@ -1,4 +1,4 @@
-import { Dimensions, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Pressable, ScrollView, Text, View } from 'react-native'
 import React from 'react'
 import DetailsNav from '../../components/Navbars/DetailsNav';
 import { detailcon, detailsImg } from '../../../assets/images';
@@ -6,14 +6,17 @@ import Icon1 from 'react-native-vector-icons/Octicons';
 import { dishSizes } from '../../utils/data';
 import { styles } from './style';
 import LongButton from '../../components/buttons/LongButton';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
+type DetailsScreenProps = NativeStackScreenProps<RootStackParamList,"Details">
 
-const DetailScreen = () => {
+const DetailScreen = ({navigation}:DetailsScreenProps) => {
     
   return (
     <View style={styles.mainContainer}>
       <View style={styles.nav}>
-        <DetailsNav/>
+        <DetailsNav navigation={navigation}/>
       </View>
       
     <ScrollView style={{flex:1}}>
@@ -79,7 +82,7 @@ const DetailScreen = () => {
             </View>
             
         </View>
-       <LongButton label='ADD TO CART'/>
+       <LongButton label='ADD TO CART' onPressFunc={()=>{navigation.navigate("Cart")}}/>
       </View>
    </View>
   )

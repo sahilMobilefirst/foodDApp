@@ -5,13 +5,17 @@ import { ordersData } from '../../utils/data';
 import OrderItem from '../../components/items/OrderItem';
 import HistoryItem from '../../components/items/HistoryItem';
 import { styles } from './style';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
-const OrderScreen = () => {
+type OrderProps = NativeStackScreenProps<RootStackParamList,"Order">
+
+const OrderScreen = ({navigation}:OrderProps) => {
   const [selectedOrders, setSelectedOrders] = useState("Ongoing");
 
   return (
     <View style={{ flex: 1 }}>
-      <OrderNav />
+      <OrderNav navigation={navigation} />
       <View style={styles.con1}>
         <Pressable
           style={[
@@ -52,8 +56,10 @@ const OrderScreen = () => {
         <FlatList
           data={ordersData}
           keyExtractor={(item) => item.key}
-          renderItem={({ item }) => {
-            return <OrderItem {...item} />;
+          renderItem={( item ) => {
+            return <OrderItem item={item.item} navigation={()=>
+            navigation.navigate("Tracking")
+            }/>;
           }}
         />
       )}

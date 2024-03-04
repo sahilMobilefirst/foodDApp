@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/Entypo';
@@ -6,14 +6,16 @@ import Icon2 from 'react-native-vector-icons/Entypo';
 
 
 
-const OrderNav = () => {
+const OrderNav = ({navigation}:any) => {
     
   return (
     <View style={styles.con1}>
-        <View style={[styles.con2,{gap:15}]}>
+        <Pressable
+        onPress={()=>navigation.goBack()}
+        style={[styles.con2,{gap:15}]}>
           <Icon name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
             <Text style={{color:"black",fontSize:15}}>My Orders</Text>
-        </View>
+        </Pressable>
     
         <View style={{alignItems: 'center' }}>
           <Icon2 style={styles.icon2} name='dots-three-horizontal' color={'black'} size={18} />

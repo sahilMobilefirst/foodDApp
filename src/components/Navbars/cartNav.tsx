@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/AntDesign';
@@ -10,14 +10,17 @@ interface CartNavProps {
   name: string;
   iconBgColor:string,
   iconColor:string
+  navigation:any
 }
 
-const CartNav: React.FC<CartNavProps> = ({ name,iconBgColor,iconColor }) => {
+const CartNav: React.FC<CartNavProps> = ({ name,iconBgColor,iconColor,navigation }) => {
   return (
     <View style={styles.con1}>
-      <View style={[styles.con2,]}>
+      <Pressable 
+      onPress={()=>navigation.goBack()}
+      style={[styles.con2,]}>
         <Icon name='chevron-small-left' style={[styles.icon1,{backgroundColor:iconBgColor}]} color={iconColor} size={25} />
-      </View>
+      </Pressable>
       <Text style={{ color: "black", fontSize:20,fontWeight:"bold" }}>{name}</Text>
     </View>
   );

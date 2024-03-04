@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
         paddingVertical:10
     },
     RecentContainer:{
-      paddingVertical:Dimensions.get("window").height * 0.01
     },
     RecentCon2:{
       paddingHorizontal:15,
@@ -43,7 +42,6 @@ export const styles = StyleSheet.create({
       borderRadius:10
     },
     popularFoodItem: {
-      flexDirection: "column",
       marginHorizontal: 10,
       borderRadius: 15,
       paddingTop: 12,

@@ -12,8 +12,12 @@ import {CartItem} from '../../components/items/cartItem';
 import Icon from 'react-native-vector-icons/Entypo';
 import {styles} from './style';
 import LongButton from '../../components/buttons/LongButton';
+import { RootStackParamList } from '../../App';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const Cart = () => {
+type CartProps = NativeStackScreenProps<RootStackParamList,"Cart">
+
+const Cart = ({navigation}:CartProps) => {
   const Subtotal = cartData.reduce(
     (amount, item) => item.price * item.quantity + amount,
     0,
@@ -25,7 +29,7 @@ const Cart = () => {
 
   return (
     <View style={styles.container}>
-      <CartNav name='Cart' iconBgColor='gray' iconColor='black' />
+      <CartNav name='Cart' iconBgColor='gray' iconColor='black' navigation={navigation} />
 
       <FlatList
         style={{
@@ -74,7 +78,7 @@ const Cart = () => {
         </View>
 
        <LongButton label='PLACE ORDER'
-        onPressFunc={handlePlaceOrder}/>
+        onPressFunc={()=>navigation.navigate("Order")}/>
       </View>
     </View>
   );

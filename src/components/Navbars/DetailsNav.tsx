@@ -6,17 +6,16 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 
 
 
-const DetailsNav = () => {
+const DetailsNav = ({navigation}:any) => {
     
   return (
     <View style={styles.con1}>
-        <View style={styles.con2}>
-          <Icon name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
-        </View>
-    
-        <View style={{alignItems: 'center' }}>
+
+          <Icon
+          onPress={()=>navigation.goBack()}
+          name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
+  
           <Icon2 style={styles.icon2} name='heart' color={'#FF8400'} size={13} />
-        </View>
       </View>
       
   )
@@ -30,10 +29,6 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between' 
     },
 
-    con2:{ 
-      flexDirection: 'row', 
-      alignItems: 'center' 
-    },
 
     navText1: {
       color: 'black',

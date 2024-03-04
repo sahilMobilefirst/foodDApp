@@ -6,6 +6,8 @@ import { categories, openRestaurants, popularFood } from '../../utils/data';
 import { Item } from '../../components/items/CategoryItem';
 import { ResItem } from '../../components/items/ResItem';
 import { styles } from './style';
+import {NativeStackScreenProps} from "@react-navigation/native-stack"
+import { RootStackParamList } from '../../App';
 
 
 export interface ListItem {
@@ -29,16 +31,18 @@ export interface ResItemType {
   rating:number
 }
 
-const Home = () => {
+type HomeProps = NativeStackScreenProps<RootStackParamList,'Home'>
+
+const Home = ({navigation}:HomeProps) => {
   return (
     <View style={{flex:1, paddingTop: 12, paddingHorizontal: 15 }}>
-      <Navbar />
+      <Navbar navigation={navigation} />
       <Text style={styles.text1}>
         Hey Septa, <Text style={{ fontWeight: "bold" }}>Good Afternoon</Text>
       </Text>
-      
+      <Searchbar onPressFunc={navigation} />
       <ScrollView>
-      <Searchbar />
+      
       <View>
         <View style={styles.categoryView}>
           <Text style={styles.categoryText1}>All Categories</Text>
@@ -64,7 +68,7 @@ const Home = () => {
               <FlatList
               horizontal
               renderItem={({item})=>
-               <ResItem {...item}/>
+               <ResItem item={item} navigation={navigation}/>
               }
               
               data={openRestaurants}
@@ -83,7 +87,7 @@ const Home = () => {
               <FlatList
               horizontal
               renderItem={({item})=>
-               <ResItem {...item}/>
+               <ResItem item={item} navigation={navigation}/>
               }
               
               data={openRestaurants}

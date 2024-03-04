@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import Icon2 from 'react-native-vector-icons/Feather';
 
 
 
-const Navbar = () => {
+const Navbar = ({navigation}:any) => {
   return (
     <View style={styles.con1}>
         <View style={styles.con2}>
@@ -16,10 +16,12 @@ const Navbar = () => {
           </View>
         </View>
     
-        <View style={{alignItems: 'center' }}>
+        <Pressable 
+        onPress={()=>navigation.navigate("Cart")}
+        style={{alignItems: 'center' }}>
           <Icon2 style={styles.icon2} name='shopping-bag' color={'white'} size={25} />
           <Text style={styles.cartText}>2</Text>
-        </View>
+        </Pressable>
       </View>
   )
 }
