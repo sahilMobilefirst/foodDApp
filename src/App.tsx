@@ -4,13 +4,16 @@ import React from 'react';
 
 import Home from './screens/Home';
 import OrderScreen from './screens/orders';
+import Cart from './screens/cart';
+import OrderTracking from './screens/trackingOrder';
+import DetailScreen from './screens/details';
 
 
 
 const App = () => {
   return (
    <SafeAreaView style={sytles.safviewCon}>
-   <OrderScreen/>
+    <OrderScreen/>
    </SafeAreaView>
   
   )

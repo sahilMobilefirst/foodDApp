@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View, Alert } from 'react-native';
+import OrdersBtn from '../buttons/OrdersBtn';
 
 export interface OrderItemType {
   key: string;
@@ -44,19 +45,9 @@ const OrderItem = (item: OrderItemType) => {
       </View>
 
       <View style={styles.btnCon}>
-        <Pressable
-          style={[styles.btn, { backgroundColor: "#FF7622" }]}
-          onPress={handleTrackOrderPress}
-        >
-          <Text style={{ color: "#FFFF" }}>Track Order</Text>
-        </Pressable>
+       <OrdersBtn label='Track Order' onPressFunc={handleTrackOrderPress}/>
 
-        <Pressable
-          style={styles.btn}
-          onPress={handleCancelPress}
-        >
-          <Text style={{ color: "#FF7622" }}>Cancel</Text>
-        </Pressable>
+       <OrdersBtn label='Cancel' onPressFunc={handleCancelPress} textColor="#FF7622" backgroundColor='#FFFFF'/>
       </View>
     </View>
   );
@@ -67,6 +58,7 @@ export default OrderItem;
 const styles = StyleSheet.create({
   con1: {
     paddingHorizontal: Dimensions.get("window").width * 0.04,
+    paddingVertical:1
   },
   img: {
     height: Dimensions.get("window").height * 0.08,

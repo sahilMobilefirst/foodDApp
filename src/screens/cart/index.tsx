@@ -2,7 +2,6 @@ import {
   Dimensions,
   FlatList,
   Pressable,
-  StyleSheet,
   Text,
   View,
   Alert,
@@ -12,6 +11,7 @@ import {cartData} from '../../utils/data';
 import {CartItem} from '../../components/items/cartItem';
 import Icon from 'react-native-vector-icons/Entypo';
 import {styles} from './style';
+import LongButton from '../../components/buttons/LongButton';
 
 const Cart = () => {
   const Subtotal = cartData.reduce(
@@ -25,13 +25,11 @@ const Cart = () => {
 
   return (
     <View style={styles.container}>
-      <CartNav />
+      <CartNav name='Cart' iconBgColor='gray' iconColor='black' />
 
       <FlatList
         style={{
-          marginTop: Dimensions.get('window').height * 0.02,
-          height: 200,
-          backgroundColor: 'orange',
+          marginTop: Dimensions.get('window').height * 0.02
         }}
         data={cartData}
         renderItem={({item, index}) => {
@@ -75,9 +73,8 @@ const Cart = () => {
           </View>
         </View>
 
-        <Pressable style={styles.addtocartBtn} onPress={handlePlaceOrder}>
-          <Text style={styles.addtocartBtnText}>PLACE ORDER</Text>
-        </Pressable>
+       <LongButton label='PLACE ORDER'
+        onPressFunc={handlePlaceOrder}/>
       </View>
     </View>
   );

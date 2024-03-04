@@ -48,7 +48,7 @@ const OrderScreen = () => {
         </Pressable>
       </View>
 
-      {selectedOrders === "Ongoing" && (
+      {selectedOrders == "Ongoing" && (
         <FlatList
           data={ordersData}
           keyExtractor={(item) => item.key}
@@ -57,7 +57,7 @@ const OrderScreen = () => {
           }}
         />
       )}
-      {selectedOrders === "History" && (
+      {selectedOrders == "History" && (
         <FlatList
           data={ordersData}
           keyExtractor={(item) => item.key}

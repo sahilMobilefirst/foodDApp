@@ -6,17 +6,22 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 
 
 
-const CartNav = () => {
-    
+interface CartNavProps {
+  name: string;
+  iconBgColor:string,
+  iconColor:string
+}
+
+const CartNav: React.FC<CartNavProps> = ({ name,iconBgColor,iconColor }) => {
   return (
     <View style={styles.con1}>
-        <View style={styles.con2}>
-          <Icon name='chevron-small-left' style={styles.icon1} color={'black'} size={25} />
-        </View>
-        <Text style={{color:"black",fontSize:16}}>Cart</Text>
-      </View>  
-  )
-}
+      <View style={[styles.con2,]}>
+        <Icon name='chevron-small-left' style={[styles.icon1,{backgroundColor:iconBgColor}]} color={iconColor} size={25} />
+      </View>
+      <Text style={{ color: "black", fontSize:20,fontWeight:"bold" }}>{name}</Text>
+    </View>
+  );
+};
 
 export default CartNav;
 
@@ -36,7 +41,6 @@ const styles = StyleSheet.create({
 
     icon1:{
       padding: 7,
-      backgroundColor: '#ECF0F4',
       borderRadius: 30,
     },
     icon2: {

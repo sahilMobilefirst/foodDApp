@@ -35,17 +35,6 @@ export const styles = StyleSheet.create({
       fontWeight: "400",
       fontSize: 18,
     },
-    addtocartBtn: {
-      backgroundColor: "#FF7622",
-      paddingVertical: Dimensions.get("window").height * 0.025,
-      borderRadius: 12,
-      marginTop: Dimensions.get("window").height * 0.02,
-    },
-    addtocartBtnText: {
-      color: "#FFFFFF",
-      fontSize: 15,
-      alignSelf: "center",
-      fontWeight: "600",
-    },
+   
   });
   

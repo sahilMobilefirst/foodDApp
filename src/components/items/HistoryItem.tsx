@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View, Alert } from 'react-native';
+import OrdersBtn from '../buttons/OrdersBtn';
 
 export interface OrderItemType {
   key: string;
@@ -17,12 +18,10 @@ const HistoryItem = (item: OrderItemType) => {
 
   const handleRatePress = () => {
     Alert.alert('Rate Pressed', `Rate order with ID: ${item.orderId}`);
-    // Add your logic for rating the order here
   };
 
   const handleReOrderPress = () => {
     Alert.alert('Re-Order Pressed', `Re-Order from order ID: ${item.orderId}`);
-    // Add your logic for re-ordering here
   };
 
   return (
@@ -51,12 +50,11 @@ const HistoryItem = (item: OrderItemType) => {
       </View>
 
       <View style={styles.btnCon}>
-        <Pressable style={styles.btn} onPress={handleRatePress}>
-          <Text style={{ color: "#FF7622", paddingHorizontal: 10 }}>Rate</Text>
-        </Pressable>
-        <Pressable style={[styles.btn, { backgroundColor: "#FF7622" }]} onPress={handleReOrderPress}>
-          <Text style={{ color: "#FFFF" }}>Re-Order</Text>
-        </Pressable>
+        <OrdersBtn label='Rate' textColor='#FF7622' backgroundColor='#FFFFF' TextHorizontalPadding={10}
+        onPressFunc={handleRatePress}
+        />
+       
+        <OrdersBtn label='Re-Order' onPressFunc={handleReOrderPress}/>
       </View>
       
     </View>
@@ -69,6 +67,7 @@ const styles = StyleSheet.create({
   con1: {
     paddingTop: 10,
     paddingHorizontal: Dimensions.get("window").width * 0.04,
+    paddingBottom:1
   },
   img: {
     height: Dimensions.get("window").height * 0.08,

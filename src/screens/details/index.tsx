@@ -5,6 +5,7 @@ import { detailcon, detailsImg } from '../../../assets/images';
 import Icon1 from 'react-native-vector-icons/Octicons';
 import { dishSizes } from '../../utils/data';
 import { styles } from './style';
+import LongButton from '../../components/buttons/LongButton';
 
 
 const DetailScreen = () => {
@@ -78,9 +79,7 @@ const DetailScreen = () => {
             </View>
             
         </View>
-        <Pressable style={styles.addtocartBtn}>
-                <Text style={styles.addtocartBtnText}>ADD TO CART</Text>
-            </Pressable>
+       <LongButton label='ADD TO CART'/>
       </View>
    </View>
   )
