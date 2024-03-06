@@ -1,5 +1,7 @@
-import { cat1, cat2, cat3, popularFood1, suggest1, suggest2, suggest3 } from "../../assets/images";
-export const introLines= ["All your Favourites","order from choosen chef","Free delivery offers"]
+import { Image1, Image2, Image3, cat1, cat2, cat3, popularFood1, suggest1, suggest2, suggest3 } from "../../assets/images";
+
+
+
 
 export const categories = [
     { key: '1', title: 'All',img:cat1},
@@ -52,4 +54,10 @@ export const ordersData =[
   {key:"1",name:"Pizza Hut",img:suggest1,price:32,quantity:1,orderId:46464,category:"Food",status:"Completed",date:"29 Jan,12:30"},
   {key:"2",name:"McDonald's",img:suggest2,price:46,quantity:1,orderId:79844,category:"Food",status:"Completed",date:"29 Jan,12:30"},
   {key:"3",name:"Starbucks",img:suggest3,price:34,quantity:1,orderId:13131,category:"Food",status:"Cancelled",date:"29 Jan,12:30"},
+]
+
+export const introData =[
+  { key: "1", img: Image2, text: "All your Favourites" },
+  { key: "2", img: Image1, text: "order from chosen chef" },
+  { key: "3", img: Image3, text: "Free delivery offers" },
 ]
