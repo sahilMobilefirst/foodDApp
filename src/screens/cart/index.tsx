@@ -29,7 +29,7 @@ const Cart = ({navigation}:CartProps) => {
 
   return (
     <View style={styles.container}>
-      <CartNav name='Cart' iconBgColor='gray' iconColor='black' navigation={navigation} />
+      <CartNav NavName='Cart' LeftIconBgColor='#ECF0F4' LeftIconColor='black' navigation={navigation} />
 
       <FlatList
         style={{

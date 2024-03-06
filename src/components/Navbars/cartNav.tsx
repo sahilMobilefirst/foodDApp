@@ -7,21 +7,21 @@ import Icon2 from 'react-native-vector-icons/AntDesign';
 
 
 interface CartNavProps {
-  name: string;
-  iconBgColor:string,
-  iconColor:string
+  NavName: string;
+  LeftIconBgColor:string,
+  LeftIconColor:string
   navigation:any
 }
 
-const CartNav: React.FC<CartNavProps> = ({ name,iconBgColor,iconColor,navigation }) => {
+const CartNav: React.FC<CartNavProps> = ({ NavName,LeftIconBgColor,LeftIconColor,navigation }) => {
   return (
     <View style={styles.con1}>
       <Pressable 
       onPress={()=>navigation.goBack()}
       style={[styles.con2,]}>
-        <Icon name='chevron-small-left' style={[styles.icon1,{backgroundColor:iconBgColor}]} color={iconColor} size={25} />
+        <Icon name='chevron-small-left' style={[styles.icon1,{backgroundColor:LeftIconBgColor}]} color={LeftIconColor} size={25} />
       </Pressable>
-      <Text style={{ color: "black", fontSize:20,fontWeight:"bold" }}>{name}</Text>
+      <Text style={{ color: "black", fontSize:20,fontWeight:"bold" }}>{NavName}</Text>
     </View>
   );
 };

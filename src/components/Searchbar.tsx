@@ -3,15 +3,16 @@ import React, { useState } from 'react'
 import  Icon  from 'react-native-vector-icons/Feather'
 import  Icon2  from 'react-native-vector-icons/MaterialIcons'
 
-const Searchbar = ({onPressFunc}:any) => {
+const Searchbar = ({navigation}:any) => {
   const [input,setInput] = useState('')
+  
   return (
     <Pressable
-    onPress={()=>onPressFunc.navigate("Search")}
     style={styles.container}>
      <Icon name='search' color={"#535C68"} size={25}/>
      <TextInput
-     onPressIn={()=>onPressFunc.navigate("Search")}
+     autoFocus={true}
+     onPressIn={()=>navigation.navigate("Search")}
      onChangeText={(text)=>setInput(text)}
      style={styles.inputbox}
      placeholderTextColor={"#676767"}  

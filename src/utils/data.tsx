@@ -33,6 +33,8 @@ export const SuggestedRes = [
   {key:"1",name:"Pansi Restaurant",img:suggest1,rating:4.71},
   {key:"2",name:"American Spicy Burger Shop",img:suggest2,rating:4.52},
   {key:"3",name:"Cafenio Coffee Club",img:suggest3,rating:4.35},
+  {key:"4",name:"Cafenio Coffee Club",img:suggest3,rating:4.35},
+  {key:"5",name:"Cafenio Coffee Club",img:suggest3,rating:4.35},
 
 ]
 

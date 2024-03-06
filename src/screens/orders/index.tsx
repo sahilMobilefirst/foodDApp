@@ -1,81 +1,59 @@
 import React, { useState } from 'react';
-import { Dimensions, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import OrderNav from '../../components/Navbars/orderNav';
 import { ordersData } from '../../utils/data';
 import OrderItem from '../../components/items/OrderItem';
 import HistoryItem from '../../components/items/HistoryItem';
-import { styles } from './style';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
+import { styles } from './style';
 
-type OrderProps = NativeStackScreenProps<RootStackParamList,"Order">
+type OrderProps = NativeStackScreenProps<RootStackParamList, "Order">;
 
-const OrderScreen = ({navigation}:OrderProps) => {
-  const [selectedOrders, setSelectedOrders] = useState("Ongoing");
+const OrderScreen = ({ navigation }: OrderProps) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const handleIndexChange = (index: number) => {
+    setSelectedIndex(index);
+  };
 
   return (
     <View style={{ flex: 1 }}>
       <OrderNav navigation={navigation} />
       <View style={styles.con1}>
-        <Pressable
-          style={[
-            styles.topbtn,
-            selectedOrders === "Ongoing" && {
-              borderBottomWidth: 2,
-              borderBottomColor: "#FF7622",
-            },
-          ]}
-          onPress={() => {
-            setSelectedOrders("Ongoing");
-          }}
-        >
-          <Text style={[styles.con1Text, selectedOrders === "Ongoing" && { color: "orange", fontWeight: "bold" }]}>
-            Ongoing
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={[
-            styles.topbtn,
-            selectedOrders === "History" && {
-              borderBottomWidth: 2,
-              borderBottomColor: "#FF7622",
-            },
-          ]}
-          onPress={() => {
-            setSelectedOrders("History");
-          }}
-        >
-          <Text style={[styles.con1Text, selectedOrders === "History" && { color: "orange", fontWeight: "bold" }]}>
-            History
-          </Text>
-        </Pressable>
+        <SegmentedControlTab
+          values={['Ongoing', 'History']}
+          selectedIndex={selectedIndex}
+          onTabPress={handleIndexChange}
+          tabsContainerStyle={styles.segmentedControl}
+          tabStyle={styles.segmentedTab}
+          activeTabStyle={styles.activeSegmentedTab}
+          tabTextStyle={styles.segmentedText}
+          activeTabTextStyle={styles.activeSegmentedText}
+        />
       </View>
 
-      {selectedOrders == "Ongoing" && (
+      {selectedIndex == 0 && (
         <FlatList
           data={ordersData}
           keyExtractor={(item) => item.key}
-          renderItem={( item ) => {
-            return <OrderItem item={item.item} navigation={()=>
-            navigation.navigate("Tracking")
-            }/>;
-          }}
+          renderItem={({ item }) => (
+            <OrderItem item={item} navigation={() => navigation.navigate('Tracking')} />
+          )}
         />
       )}
-      {selectedOrders == "History" && (
+      {selectedIndex == 1 && (
         <FlatList
           data={ordersData}
           keyExtractor={(item) => item.key}
-          renderItem={({ item }) => {
-            return <HistoryItem {...item} />;
-          }}
+          renderItem={({ item }) => <HistoryItem {...item} />}
         />
       )}
     </View>
   );
 };
 
+
+
 export default OrderScreen;
-
-

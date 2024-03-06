@@ -3,6 +3,7 @@ import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { ResItemType } from "../../screens/Home";
 import Icon1 from "react-native-vector-icons/Fontisto";
 import Icon2 from "react-native-vector-icons/FontAwesome6";
+import { useState } from "react";
 
 type ResItemProps ={
   item:ResItemType,
@@ -10,6 +11,22 @@ type ResItemProps ={
 }
 
 export const ResItem = ({item,navigation}:ResItemProps) => {
+  const [lastPress, setLastPress] = useState<number>(0);
+
+  const handlePress = () => {
+    const currentTime = new Date().getTime();
+    const doublePressDelay = 300
+    if (currentTime - lastPress < doublePressDelay) {
+      Alert.alert(("Added to Wishlist"))
+      // console.log('Double Press!')
+      setLastPress(0)
+
+    } else {
+      setLastPress(currentTime)
+    }
+  }
+
+
   return (
       <Pressable
       onPress={()=>{navigation.navigate("Details")}}
@@ -17,7 +34,6 @@ export const ResItem = ({item,navigation}:ResItemProps) => {
         <View style={{ paddingVertical: 25, backgroundColor: "#F0ECE9" }}>
           <Image style={styles.img} source={item.img} />
         </View>
-
         <View style={styles.container2}>
           <View>
             <Text style={styles.text}>{item.title}</Text>
@@ -30,11 +46,13 @@ export const ResItem = ({item,navigation}:ResItemProps) => {
           </View>
 
           <View style={styles.container3}>
+            
             <Icon1
-              
+              onPress={handlePress}
               style={styles.icon1}
               name="heart-alt"
               color={"black"}
+              
               size={15}
             />
             <Icon2
@@ -55,6 +73,7 @@ const styles = StyleSheet.create({
     color: "#403F3E",
     fontSize: 20,
     fontWeight: "400",
+    
   },
   img: {
     width: 80,
@@ -81,10 +100,12 @@ const styles = StyleSheet.create({
     gap: 10 },
     
   icon1: {
+    paddingTop:10,
+    paddingLeft:9,
     padding: 8,
     borderColor: "#E3DCD5",
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 30,
     alignSelf: "center",
   },
   icon2: {

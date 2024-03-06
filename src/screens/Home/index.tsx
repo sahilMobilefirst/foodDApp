@@ -34,13 +34,15 @@ export interface ResItemType {
 type HomeProps = NativeStackScreenProps<RootStackParamList,'Home'>
 
 const Home = ({navigation}:HomeProps) => {
+  console.log(navigation);
+  
   return (
     <View style={{flex:1, paddingTop: 12, paddingHorizontal: 15 }}>
       <Navbar navigation={navigation} />
       <Text style={styles.text1}>
         Hey Septa, <Text style={{ fontWeight: "bold" }}>Good Afternoon</Text>
       </Text>
-      <Searchbar onPressFunc={navigation} />
+      <Searchbar navigation={navigation} />
       <ScrollView>
       
       <View>

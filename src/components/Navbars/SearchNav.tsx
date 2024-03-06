@@ -19,7 +19,9 @@ const SearchNav = ({navigation}:any) => {
         </View>
     
         <View style={{alignItems: 'center' }}>
-          <Icon2 style={styles.icon2} name='shopping-bag' color={'white'} size={25} />
+          <Icon2
+          onPress={()=>navigation.navigate("Cart")}
+          style={styles.icon2} name='shopping-bag' color={'white'} size={25} />
           <Text style={styles.cartText}>2</Text>
         </View>
       </View>

@@ -13,8 +13,10 @@ import Cart from './screens/cart';
 import OrderTracking from './screens/trackingOrder';
 import DetailScreen from './screens/details';
 import SearchScreen from './screens/searchScreen';
+import IntroScreen from './screens/introScreen';
 
 export type RootStackParamList = {
+  Intro:undefined,
   Home: undefined;
   Details:undefined;
   Cart:undefined;
@@ -39,7 +41,10 @@ const App = () => {
       notification: 'your_notification_color',
   },
 }}>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator initialRouteName='Intro'>
+      <Stack.Screen 
+      name='Intro' 
+      component={IntroScreen} options={{headerShown:false}} />
       <Stack.Screen 
       name='Home' 
       component={Home} options={{headerShown:false}} />
