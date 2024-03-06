@@ -17,7 +17,8 @@ const LongButton = ({ label, onPressFunc }: LongButtonProps) => {
 LongButton.defaultProps = {
   label: 'Default Label',
   onPressFunc: () => {
-    console.warn('Default onPressFunc called');
+    console.log("okkk");
+    
   },
 };
 

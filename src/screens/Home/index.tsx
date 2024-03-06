@@ -42,7 +42,7 @@ const Home = ({navigation}:HomeProps) => {
       <Text style={styles.text1}>
         Hey Septa, <Text style={{ fontWeight: "bold" }}>Good Afternoon</Text>
       </Text>
-      <Searchbar navigation={navigation} />
+      <Searchbar navigation={navigation} focus={false} />
       <ScrollView>
       
       <View>

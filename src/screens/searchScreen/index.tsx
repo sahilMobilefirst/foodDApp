@@ -5,7 +5,8 @@ import SearchNav from '../../components/Navbars/SearchNav';
 import Searchbar from '../../components/Searchbar';
 import { RecentKeywords, SuggestedRes, popularFood } from '../../utils/data';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../navigation';
+
 
 type recentItemType = {
   key: string;
@@ -19,7 +20,7 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
     <View style={styles.container}>
       <SearchNav navigation={navigation} />
       <View style={{ paddingVertical: Dimensions.get('window').height * 0.02 }}>
-        <Searchbar navigation={navigation} />
+        <Searchbar navigation={navigation} focus={true} />
       </View>
       <ScrollView>
       {/* Recent Keywords Section */}

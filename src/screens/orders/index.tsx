@@ -6,8 +6,10 @@ import OrderItem from '../../components/items/OrderItem';
 import HistoryItem from '../../components/items/HistoryItem';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
+
 import { styles } from './style';
+import { Item } from '../../components/items/CategoryItem';
+import { RootStackParamList } from '../../navigation';
 
 type OrderProps = NativeStackScreenProps<RootStackParamList, "Order">;
 
@@ -17,6 +19,22 @@ const OrderScreen = ({ navigation }: OrderProps) => {
   const handleIndexChange = (index: number) => {
     setSelectedIndex(index);
   };
+
+  const OngoingCom =()=>  <FlatList
+  data={ordersData}
+  keyExtractor={(item) => item.key}
+  renderItem={({ item }) => (
+    <OrderItem item={item} navigation={() => navigation.navigate('Tracking')} />
+  )}
+/>
+
+const HistoryCom = ()=>
+  <FlatList
+  data={ordersData}
+  keyExtractor={(item) => item.key}
+  renderItem={({ item }) => <HistoryItem {...item} />}
+/>
+
 
   return (
     <View style={{ flex: 1 }}>
@@ -35,20 +53,10 @@ const OrderScreen = ({ navigation }: OrderProps) => {
       </View>
 
       {selectedIndex == 0 && (
-        <FlatList
-          data={ordersData}
-          keyExtractor={(item) => item.key}
-          renderItem={({ item }) => (
-            <OrderItem item={item} navigation={() => navigation.navigate('Tracking')} />
-          )}
-        />
+       <OngoingCom />
       )}
       {selectedIndex == 1 && (
-        <FlatList
-          data={ordersData}
-          keyExtractor={(item) => item.key}
-          renderItem={({ item }) => <HistoryItem {...item} />}
-        />
+        <HistoryCom />
       )}
     </View>
   );

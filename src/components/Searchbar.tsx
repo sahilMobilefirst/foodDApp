@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import  Icon  from 'react-native-vector-icons/Feather'
 import  Icon2  from 'react-native-vector-icons/MaterialIcons'
 
-const Searchbar = ({navigation}:any) => {
+const Searchbar = ({navigation,focus}:any) => {
   const [input,setInput] = useState('')
   
   return (
@@ -11,7 +11,7 @@ const Searchbar = ({navigation}:any) => {
     style={styles.container}>
      <Icon name='search' color={"#535C68"} size={25}/>
      <TextInput
-     autoFocus={true}
+     autoFocus={focus}
      onPressIn={()=>navigation.navigate("Search")}
      onChangeText={(text)=>setInput(text)}
      style={styles.inputbox}

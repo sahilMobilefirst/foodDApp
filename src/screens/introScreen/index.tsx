@@ -1,31 +1,75 @@
-import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import React, { useRef, useState } from 'react';
-import { Image1,Image2,Image3, cat1 } from "../../../assets/images";
+import {
+  Dimensions,
+  Image,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
+import React, {useRef, useState} from 'react';
 
-import {NativeStackScreenProps} from "@react-navigation/native-stack"
-import { RootStackParamList } from '../../App';
-import Carousel from '../../components/Carousel';
-import Carousel2 from '../../components/Carousel2';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
+import {introData} from '../../utils/data';
+import Carousel, {ICarouselInstance} from 'react-native-reanimated-carousel';
+import {styles} from './style';
+import {RootStackParamList} from '../../navigation';
 
+type IntroScreenProps = NativeStackScreenProps<RootStackParamList, 'Intro'>;
 
-type IntroScreenProps =NativeStackScreenProps<RootStackParamList,"Intro">
+const IntroScreen = ({navigation}: IntroScreenProps) => {
+  const width = Dimensions.get('window').width;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<ICarouselInstance>(null);
 
-const IntroScreen = ({navigation}:IntroScreenProps) => {
-  const ImgList = [Image2,Image1,Image3]
-  
-  const [index,setIndex] = useState<number>(0)
- 
-  
+  const handleNext = () => {
+    if (currentIndex == introData.length - 1) {
+      navigation.replace('Home');
+      return;
+    }
+    const nextIndex = currentIndex + 1;
+    carouselRef.current?.scrollTo({index: nextIndex});
+    setCurrentIndex(nextIndex);
+  };
 
   return (
-    <View style={{flex:1,justifyContent:"center"}}>
-    <Carousel2 navigation={navigation}/>
-      <View style={{ paddingHorizontal:30 }}>
+    <View style={{flex: 1, justifyContent: 'center'}}>
+      <Carousel
+        width={width}
+        height={width}
+        data={introData}
+        ref={carouselRef}
+        onSnapToItem={index => setCurrentIndex(index)}
+        renderItem={({item}) => (
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Image
+              source={item.img}
+              style={{height: width * 0.86, width: width, marginRight: 20}}
+            />
+            <Text style={{textAlign: 'center', fontSize: 30, color: 'black'}}>
+              {item.text}
+            </Text>
+          </View>
+        )}
+      />
+
+      <View style={{paddingHorizontal: 30, marginTop: 20}}>
+        {/* Next button */}
         <Pressable
-        onPress={()=>navigation.replace("Home")}
-        style={[styles.nextButton, { backgroundColor: "white" }]}>
-          <Text style={[styles.buttonText, { color: "black" }]}>Skip</Text>
+          onPress={handleNext}
+          style={[styles.nextButton, {marginBottom: 20}]}>
+          <Text style={styles.buttonText}>NEXT</Text>
+        </Pressable>
+
+        {/* Skip button */}
+        <Pressable
+          onPress={() => navigation.replace('Home')}
+          style={[styles.nextButton, {backgroundColor: 'white'}]}>
+          <Text style={[styles.buttonText, {color: 'black'}]}>Skip</Text>
         </Pressable>
       </View>
     </View>
@@ -33,48 +77,3 @@ const IntroScreen = ({navigation}:IntroScreenProps) => {
 };
 
 export default IntroScreen;
-
-const styles = StyleSheet.create({
-
-    imgView:{
-      marginTop:50,
-      alignSelf:"center", 
-    },
-    introText:{
-      color:"black",
-      fontSize:24,
-      alignSelf:"center",
-      fontWeight:"bold",
-      paddingBottom:35
-    },
-    buttonText: {
-      color: "white",
-      fontSize: 15,
-      fontWeight: "bold",
-    },
-    nextButton: {
-      backgroundColor: "#FFCA28",
-      width: "100%",
-      height: 65,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 10,
-    },
-    imgText2:{
-      color:"#646982",
-      fontSize:16,
-      textAlign:"center",
-      paddingVertical:20
-
-    },
-    dot: {
-      width: 10,
-      height: 10,
-      borderRadius: 5,
-      backgroundColor: '#FFCDD2',
-      margin:5,
-    },
-    dotView:{
-      flexDirection: "row", alignSelf: "center",paddingVertical:30
-    }
-  });

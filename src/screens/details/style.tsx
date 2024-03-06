@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
       height: Dimensions.get("window").height * 0.2,
       backgroundColor: "#F0F5FA",
       paddingVertical: 20,
-      paddingHorizontal: Dimensions.get("window").width * 0.04,
+      paddingHorizontal: Dimensions.get("window").width * 0.05,
       borderTopEndRadius:20,
       borderTopLeftRadius:20
     },

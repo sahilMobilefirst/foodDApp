@@ -12,8 +12,9 @@ import {CartItem} from '../../components/items/cartItem';
 import Icon from 'react-native-vector-icons/Entypo';
 import {styles} from './style';
 import LongButton from '../../components/buttons/LongButton';
-import { RootStackParamList } from '../../App';
+
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation';
 
 type CartProps = NativeStackScreenProps<RootStackParamList,"Cart">
 
