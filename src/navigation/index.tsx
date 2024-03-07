@@ -1,9 +1,6 @@
 // Navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-
-// Screens
 import IntroScreen from '../screens/introScreen';
 import Home from '../screens/Home';
 import DetailScreen from '../screens/details';
@@ -11,6 +8,8 @@ import Cart from '../screens/cart';
 import OrderScreen from '../screens/orders';
 import OrderTracking from '../screens/trackingOrder';
 import SearchScreen from '../screens/searchScreen';
+
+// Screens
 
 export type RootStackParamList = {
   Intro: undefined;
@@ -24,7 +23,8 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export const navigationStack = () => (
+export const NaviContainer = () =>{
+  return(
   <NavigationContainer
     theme={{
       dark: false,
@@ -74,5 +74,5 @@ export const navigationStack = () => (
         options={{headerShown: false}}
       />
     </Stack.Navigator>
-  </NavigationContainer>
-);
+  </NavigationContainer>)
+}

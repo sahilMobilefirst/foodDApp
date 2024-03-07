@@ -7,7 +7,8 @@ import { Item } from '../../components/items/CategoryItem';
 import { ResItem } from '../../components/items/ResItem';
 import { styles } from './style';
 import {NativeStackScreenProps} from "@react-navigation/native-stack"
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../navigation';
+
 
 
 export interface ListItem {
@@ -34,7 +35,6 @@ export interface ResItemType {
 type HomeProps = NativeStackScreenProps<RootStackParamList,'Home'>
 
 const Home = ({navigation}:HomeProps) => {
-  console.log(navigation);
   
   return (
     <View style={{flex:1, paddingTop: 12, paddingHorizontal: 15 }}>

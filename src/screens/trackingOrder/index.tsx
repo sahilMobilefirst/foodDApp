@@ -4,7 +4,8 @@ import { BottomDrawer } from '../../components/BottomDrawer'
 import { mapImg } from '../../../assets/images'
 import CartNav from '../../components/Navbars/cartNav'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { RootStackParamList } from '../../App'
+import { RootStackParamList } from '../../navigation'
+
 
 type TrackingProps = NativeStackScreenProps<RootStackParamList,"Tracking">
 
@@ -13,7 +14,7 @@ const OrderTracking = ({navigation}:TrackingProps) => {
     <View style={styles.mainCon}>
         
       <View style={styles.NavCon}>
-            <CartNav navigation={navigation} name='Track Order' iconBgColor='black' iconColor='white'/>
+            <CartNav navigation={navigation} NavName='Track Order' LeftIconBgColor='black' LeftIconColor='white'/>
       </View>
       <Image source={mapImg} style={styles.img}/>
       <BottomDrawer/>

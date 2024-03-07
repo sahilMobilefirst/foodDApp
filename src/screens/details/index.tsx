@@ -3,18 +3,28 @@ import React from 'react'
 import DetailsNav from '../../components/Navbars/DetailsNav';
 import { detailcon, detailsImg } from '../../../assets/images';
 import Icon1 from 'react-native-vector-icons/Octicons';
-import { dishSizes } from '../../utils/data';
+import { cartData, dishSizes, popularFood } from '../../utils/data';
 import { styles } from './style';
-import LongButton from '../../components/buttons/LongButton';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import OrdersBtn from '../../components/buttons/OrdersBtn';
 import { RootStackParamList } from '../../navigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type DetailsScreenProps = NativeStackScreenProps<RootStackParamList,"Details">
 
 const DetailScreen = ({navigation}:DetailsScreenProps) => {
-    
+  
+  const onPress = async()=>{
+    try{
+    const cartItem = JSON.stringify(cartData[0])
+    await AsyncStorage.setItem("item",cartItem)
+    console.log("Data stored successfully!",popularFood[0]);
+    navigation.navigate("Cart");
+    }catch(error){
+      console.error('Error storing data:', error);
+    }
+  }
   return (
     <View style={styles.mainContainer}>
       <View style={styles.nav}>
@@ -86,9 +96,9 @@ const DetailScreen = ({navigation}:DetailsScreenProps) => {
         </View>
        <OrdersBtn
        label='ADD TO CART'
-       onPressFunc={()=>{navigation.navigate("Cart")}}
-       btnContainer={{backgroundColor:"#FF7622",marginTop:20,paddingVertical:15,alignItems:"center"}}
-       buttonText={{color:"#FFFFFF",fontWeight:"700"}}
+       onPressFunc={onPress}
+       btnContainer={styles.btnCon}
+       buttonText={styles.addtocartBtnText}
        />
       </View>
    </View>

@@ -1,24 +1,23 @@
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native';
 import React from 'react';
-import { navigationStack } from './navigation';
+import { NaviContainer } from './navigation';
 
 
 
 const App = () => {
   return (
-   <SafeAreaView style={sytles.safviewCon}>
-    {navigationStack()}
-   </SafeAreaView>
-  
-  )
+    <SafeAreaView style={styles.safviewCon}>
+    <NaviContainer/>
+    </SafeAreaView>
+  );
 }
 
 export default App;
 
-const sytles = StyleSheet.create({
-  safviewCon:{
-    flex:1,
-    backgroundColor:"white",
-    color:"black",
+const styles = StyleSheet.create({
+  safviewCon: {
+    flex: 1,
+    backgroundColor: "white",
+    color: "black",
   },
-})
+});

@@ -11,15 +11,26 @@ import {cartData} from '../../utils/data';
 import {CartItem} from '../../components/items/cartItem';
 import Icon from 'react-native-vector-icons/Entypo';
 import {styles} from './style';
-import LongButton from '../../components/buttons/LongButton';
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation';
 import OrdersBtn from '../../components/buttons/OrdersBtn';
+import { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type CartProps = NativeStackScreenProps<RootStackParamList,"Cart">
 
+interface item {
+  key: string;
+  name: string;
+  img: any;
+  price: number;
+  quantity: number;
+}
+
 const Cart = ({navigation}:CartProps) => {
+  const [data,setData] = useState<item[]>()
+
   const Subtotal = cartData.reduce(
     (amount, item) => item.price * item.quantity + amount,
     0,
@@ -29,6 +40,23 @@ const Cart = ({navigation}:CartProps) => {
     Alert.alert('Place Order', 'Order placed successfully!', [{text: 'OK'}]);
   };
 
+  useEffect(()=>{
+    const getData = async()=>{
+      try{
+        const storedData = await AsyncStorage.getItem("item")
+        if (storedData !== null) {
+          const parsedData = JSON.parse(storedData);
+          setData([parsedData]);
+          console.log('Retrieved Data:', parsedData);
+        }
+      }catch(err){
+        console.log("error:",err)
+      }
+      
+    }
+    getData()
+  },[])
+
   return (
     <View style={styles.container}>
       <CartNav NavName='Cart' LeftIconBgColor='#ECF0F4' LeftIconColor='black' navigation={navigation} />
@@ -37,7 +65,7 @@ const Cart = ({navigation}:CartProps) => {
         style={{
           marginTop: Dimensions.get('window').height * 0.02
         }}
-        data={cartData}
+        data={data}
         renderItem={({item, index}) => {
           return (
             <View key={index}>

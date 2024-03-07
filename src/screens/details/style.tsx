@@ -103,16 +103,11 @@ export const styles = StyleSheet.create({
       fontSize:18,
       fontWeight:"bold"
     },
-    addtocartBtn:{
-      backgroundColor:"#FF7622",
-      paddingVertical:Dimensions.get("window").height * 0.025,
-      borderRadius:20,
-      marginTop:Dimensions.get("window").height * 0.02
-    },
     addtocartBtnText:{
       fontSize:15,
       alignSelf:"center",
       fontWeight:"bold"
-    }
+    },
+    btnCon:{backgroundColor:"#FF7622",marginTop:20,paddingVertical:15,alignItems:"center"}
   });
   
