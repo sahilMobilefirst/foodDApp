@@ -15,6 +15,7 @@ import LongButton from '../../components/buttons/LongButton';
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation';
+import OrdersBtn from '../../components/buttons/OrdersBtn';
 
 type CartProps = NativeStackScreenProps<RootStackParamList,"Cart">
 
@@ -78,8 +79,14 @@ const Cart = ({navigation}:CartProps) => {
           </View>
         </View>
 
-       <LongButton label='PLACE ORDER'
-        onPressFunc={()=>navigation.navigate("Order")}/>
+         <OrdersBtn
+       label='PLACE ORDER'
+       onPressFunc={()=>navigation.navigate("Order")}
+       btnContainer={{backgroundColor:"#FF7622",marginTop:20,paddingVertical:18,alignItems:"center"}}
+       buttonText={{color:"#FFFFFF",fontWeight:"700",
+      fontSize:16
+      }}
+       />
       </View>
     </View>
   );

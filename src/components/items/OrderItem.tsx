@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions, Image, ImageSourcePropType, Pressable, StyleSheet, Text, View, Alert } from 'react-native';
 import OrdersBtn from '../buttons/OrdersBtn';
+import LongButton from '../buttons/LongButton';
 
 export interface OrderItemType {
   key: string;
@@ -48,9 +49,13 @@ const OrderItem = ({item,navigation}:OrderItemProps) => {
       </View>
 
       <View style={styles.btnCon}>
-       <OrdersBtn label='Track Order' onPressFunc={handleTrackOrderPress}/>
+       <OrdersBtn label='Track Order' onPressFunc={handleTrackOrderPress}
+       btnContainer={{backgroundColor:"#FF7622"}}
+       />
 
-       <OrdersBtn label='Cancel' onPressFunc={handleCancelPress} textColor="#FF7622" backgroundColor='#FFFFF'/>
+      <OrdersBtn label='Cancel Order'
+      buttonText={{color:"#FF7622"}}
+      />
       </View>
     </View>
   );

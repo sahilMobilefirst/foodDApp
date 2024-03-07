@@ -7,7 +7,9 @@ import { dishSizes } from '../../utils/data';
 import { styles } from './style';
 import LongButton from '../../components/buttons/LongButton';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
+
+import OrdersBtn from '../../components/buttons/OrdersBtn';
+import { RootStackParamList } from '../../navigation';
 
 type DetailsScreenProps = NativeStackScreenProps<RootStackParamList,"Details">
 
@@ -82,7 +84,12 @@ const DetailScreen = ({navigation}:DetailsScreenProps) => {
             </View>
             
         </View>
-       <LongButton label='ADD TO CART' onPressFunc={()=>{navigation.navigate("Cart")}}/>
+       <OrdersBtn
+       label='ADD TO CART'
+       onPressFunc={()=>{navigation.navigate("Cart")}}
+       btnContainer={{backgroundColor:"#FF7622",marginTop:20,paddingVertical:15,alignItems:"center"}}
+       buttonText={{color:"#FFFFFF",fontWeight:"700"}}
+       />
       </View>
    </View>
   )

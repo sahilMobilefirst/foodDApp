@@ -1,15 +1,18 @@
-import { Dimensions, Pressable, StyleSheet, Text } from 'react-native';
+import { Dimensions, Pressable, StyleSheet, Text, TextStyle } from 'react-native';
 import React from 'react';
 
 type LongButtonProps = {
   label: string;
   onPressFunc: () => void;
+  buttonContainer?:TextStyle;
+  buttonText?:TextStyle;
+
 };
 
-const LongButton = ({ label, onPressFunc }: LongButtonProps) => {
+const LongButton = ({ label, onPressFunc,buttonContainer,buttonText }: LongButtonProps) => {
   return (
-    <Pressable style={styles.addtocartBtn} onPress={onPressFunc}>
-      <Text style={styles.addtocartBtnText}>{label}</Text>
+    <Pressable style={[styles.addtocartBtn,buttonContainer]} onPress={onPressFunc}>
+      <Text style={[styles.addtocartBtnText,buttonText]}>{label}</Text>
     </Pressable>
   );
 };
@@ -20,6 +23,8 @@ LongButton.defaultProps = {
     console.log("okkk");
     
   },
+  buttonContainer:{},
+  buttonText:{}
 };
 
 export default LongButton;
@@ -27,7 +32,7 @@ export default LongButton;
 const styles = StyleSheet.create({
   addtocartBtn: {
     backgroundColor: "#FF7622",
-    paddingVertical: Dimensions.get("window").height * 0.025,
+    paddingVertical:0,
     borderRadius: 12,
     marginTop: Dimensions.get("window").height * 0.02,
   },

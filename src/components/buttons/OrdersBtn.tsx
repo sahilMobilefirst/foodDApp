@@ -1,30 +1,28 @@
-import { Alert, Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Dimensions, Pressable, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 import React from 'react';
 
 type OrdersBtnProps = {
   label: string;
-  backgroundColor: string;
-  textColor: string;
-  TextHorizontalPadding:number,
   onPressFunc: () => void;
+  buttonText?:TextStyle;
+  btnContainer?:ViewStyle;
 };
 
-const OrdersBtn = ({ label, backgroundColor,TextHorizontalPadding, textColor, onPressFunc }: OrdersBtnProps) => {
+const OrdersBtn = ({ label, onPressFunc,buttonText,btnContainer }: OrdersBtnProps) => {
   return (
-    <Pressable style={[styles.btn, { backgroundColor: backgroundColor }]} onPress={onPressFunc}>
-      <Text style={{ color: textColor,paddingHorizontal:TextHorizontalPadding }}>{label}</Text>
+    <Pressable style={[styles.btn,btnContainer]} onPress={onPressFunc}>
+      <Text style={[buttonText]}>{label}</Text>
     </Pressable>
   );
 };
 
 OrdersBtn.defaultProps = {
   label: "Click Me",
-  TextHorizontalPadding:0,
-  backgroundColor: "#FF7622",
-  textColor: "#FFFFFF",
   onPressFunc: () => {
     Alert.alert('Order', 'Order Selected successfully!', [{ text: 'OK' }]);
   },
+  buttonText:{},
+  btnContainer:{}
 };
 
 export default OrdersBtn;

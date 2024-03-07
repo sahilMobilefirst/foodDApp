@@ -8,7 +8,6 @@ import SegmentedControlTab from 'react-native-segmented-control-tab';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { styles } from './style';
-import { Item } from '../../components/items/CategoryItem';
 import { RootStackParamList } from '../../navigation';
 
 type OrderProps = NativeStackScreenProps<RootStackParamList, "Order">;
