@@ -101,9 +101,11 @@ export const styles = StyleSheet.create({
     },
     quanitybtnText:{
       fontSize:18,
-      fontWeight:"bold"
+      fontWeight:"bold",
+      color:"white"
     },
     addtocartBtnText:{
+      color:"white",
       fontSize:15,
       alignSelf:"center",
       fontWeight:"bold"

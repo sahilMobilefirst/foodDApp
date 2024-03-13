@@ -50,11 +50,13 @@ const OrderItem = ({item,navigation}:OrderItemProps) => {
 
       <View style={styles.btnCon}>
        <OrdersBtn label='Track Order' onPressFunc={handleTrackOrderPress}
-       btnContainer={{backgroundColor:"#FF7622"}}
+       btnContainer={{backgroundColor:"#FF7622",paddingHorizontal:Dimensions.get('window').width*0.1}}
+       buttonText={{color:"white"}}
        />
 
       <OrdersBtn label='Cancel Order'
-      buttonText={{color:"#FF7622"}}
+      buttonText={{color:"#FF7622",}}
+      btnContainer={{paddingHorizontal:Dimensions.get('window').width*0.1}}
       />
       </View>
     </View>

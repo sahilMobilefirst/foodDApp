@@ -54,13 +54,14 @@ const HistoryItem = (item: OrderItemType) => {
         label='Rate'
         onPressFunc={handleRatePress}
         buttonText={{color:"#FF7622",paddingHorizontal:15}}
-        
+        btnContainer={{paddingHorizontal:Dimensions.get('window').width*0.1}}
         />
        
         <OrdersBtn 
         label='Re-Order' 
         onPressFunc={handleReOrderPress}
-        btnContainer={{backgroundColor:"#FF7622"}}
+        btnContainer={{backgroundColor:"#FF7622",paddingHorizontal:Dimensions.get('window').width*0.1}}
+        buttonText={{color:"white"}}
         />
       </View>
       

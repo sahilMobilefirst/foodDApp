@@ -29,7 +29,7 @@ export default OrdersBtn;
 
 const styles = StyleSheet.create({
   btn: {
-    paddingHorizontal: Dimensions.get("window").width * 0.12,
+    paddingHorizontal: 0,
     paddingVertical: Dimensions.get("window").height * 0.01,
     borderWidth: 1,
     borderColor: "orange",
