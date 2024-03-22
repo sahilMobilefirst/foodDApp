@@ -62,4 +62,3 @@ export const introData =[
   { key: "3", img: Image3, text: "Free delivery offers" },
 ]
 
-export const GOOGLE_API_KEY = "AIzaSyAWQrIzCS-BW6HAbrWWLeQ4b7mqsDNuyrQ"
