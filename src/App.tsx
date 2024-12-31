@@ -2,7 +2,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import React from 'react';
 import { NaviContainer } from './navigation';
 
-
+// sass
 
 const App = () => {
   return (
